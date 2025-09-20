@@ -72,7 +72,7 @@ const [isDesktop, setIsDesktop] = useState(false);
         </svg>
       </button>
 
-      <h1 className="text-[35px] lg:text-4xl font-bold">
+      <h1 className="text-[25px] lg:text-4xl font-bold">
         <span className="text-red-500">Super</span>Shop
       </h1>
 
