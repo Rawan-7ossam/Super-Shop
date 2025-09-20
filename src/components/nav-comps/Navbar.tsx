@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useEffect } from "react";
 import {
   NavigationMenu,
   NavigationMenuItem,
@@ -25,6 +25,8 @@ import { useCart } from "@/app/context/CartProvider";
 import { useWishlist } from "@/app/context/WishlistProvider";
 
 export default function Navbar() {
+  const [open, setOpen] = useState(false);
+const [isDesktop, setIsDesktop] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const PathUrl = usePathname();
   const { myContext } = useCart();
@@ -35,6 +37,18 @@ export default function Navbar() {
   const session = useSession();
   // console.log(session);
   
+  useEffect(()=>{
+    const checkScreen = () => {setIsDesktop(window.innerWidth >= 1280)}
+
+    checkScreen();
+    window.addEventListener("resize" , checkScreen)
+    return window.removeEventListener("resize" , checkScreen)
+
+    }
+    
+    
+    
+    , [])
 
   return (
     <div className=" fixed top-0 right-0 left-0 z-3 flex w-full xl:justify-between items-center xl:px-[200px] py-2 bg-white">
@@ -197,8 +211,13 @@ export default function Navbar() {
           " "
         )}
 
-        <HoverCard>
-          <HoverCardTrigger className="cursor-pointer">
+        <HoverCard open={!isDesktop ? open : undefined} onOpenChange={!isDesktop ? setOpen : undefined}  openDelay={0} closeDelay={0}>
+          <HoverCardTrigger className="cursor-pointer" {...(!isDesktop && {
+            onMouseEnter:(e) => {e.preventDefault()},
+            onClick: ()=> setOpen((prev) => !prev)  ,
+            onFocus: ()=> setOpen(true),
+            onBlur: ()=> setOpen(false)
+          })}>
             <User />
           </HoverCardTrigger>
           <HoverCardContent className="w-[128px]">
