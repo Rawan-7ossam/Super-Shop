@@ -46,8 +46,15 @@ async function getCashPayment(cartId : string , values: ShippingAddressTypes) {
 async function getOnlinePayment(cartId : string ,  values: ShippingAddressTypes) {
   try {
     const token = await getUserToken();
+
+    const baseUrl =
+      process.env.NEXT_PUBLIC_BASE_URL ||
+      (process.env.VERCEL_URL
+        ? `https://${process.env.VERCEL_URL}`
+        : "http://localhost:3000");
+
     const response = await axios.post(
-      `https://ecommerce.routemisr.com/api/v1/orders/checkout-session/${cartId}?url=http://localhost:3001`,{shippingAddress : values},
+      `https://ecommerce.routemisr.com/api/v1/orders/checkout-session/${cartId}?url=${baseUrl}`,{shippingAddress : values},
       {
         headers: {
           token: token as string,

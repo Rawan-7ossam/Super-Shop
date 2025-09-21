@@ -9,8 +9,7 @@ import { getCashPayment, getOnlinePayment } from "../actions/payment.action";
 import { Label } from "@/components/ui/label"
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
 
-// import * as z from "zod";
-// import { zodResolver } from "@hookform/resolvers/zod";
+
 
 
 export default  function CheckoutPage() {
@@ -26,13 +25,7 @@ export default  function CheckoutPage() {
     phone: string;
     city: string;
   }
-//   let schema = z.object({
-//     name: z.string().nonempty("Name is required").min(3 , "not less than 3 chars") ,
-//     email: z.string().nonempty("Email is required").email("Email not valid"),
-//     password: z.string().nonempty("Password is required").regex(/^[A-Z][a-z0-9]{3,9}/ , "Password not valid"),
-//     rePassword: z.string().nonempty("Password is required").regex(/^[A-Z][a-z0-9]{3,9}/ , "Password not valid"),
-//     phone:z.string().nonempty("Phone is required")
-//   })
+
   const {
     register,
     handleSubmit,
