@@ -11,7 +11,7 @@ The project integrates with **RESTful APIs** to provide a complete shopping expe
 - ❤️ Wishlist management with real-time updates.
 - 🛒 Cart functionality with badge counter.
 - 💳 Checkout system with both **Cash on Delivery** & **Online Payment**.
-- 📱 Fully responsive design with a modern UI (shadcn/ui + Lucide + FontAwesome).
+- 📱 Fully responsive design with a modern UI (shadcn/ui + Lucide).
 - 🔔 Toast notifications for better UX.
 
 ---
