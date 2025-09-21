@@ -6,6 +6,7 @@ import { useForm } from "react-hook-form";
 import { LoaderCircle, Mail} from "lucide-react";
 import axios from "axios";
 import { useRouter } from "next/navigation";
+import toast from "react-hot-toast";
 
 export default function ForgetPasswordPage() {
   const route = useRouter();
@@ -33,6 +34,7 @@ export default function ForgetPasswordPage() {
       
       setBtnIsLoading(true);
       if(response?.data.statusMsg === "success")
+        toast.success(`${response?.data?.message}`)
         route.push("/resetcode")
       setErrorMessage(null);
     } catch (error: unknown) {

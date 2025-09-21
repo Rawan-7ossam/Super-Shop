@@ -108,7 +108,7 @@ export default function SignInPage() {
             href="/forgetpassword"
             className="active:text-red-500 lg:hover:text-red-500 p-3 font-semibold rounded-full"
           >
-            Forget Password?
+            Forgot Password?
           </Link>
         </div>
 
