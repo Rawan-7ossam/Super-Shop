@@ -9,6 +9,7 @@ import { useRouter } from "next/navigation";
 
 import * as z from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
+import toast from "react-hot-toast";
 
 
 export default function ResetPasswordPage() {
@@ -22,7 +23,7 @@ export default function ResetPasswordPage() {
   }
   const schema = z.object({
     email: z.string().nonempty("Email is required").email("Email not valid"),
-    newPassword: z.string().nonempty("Password is required").regex(/^[A-Z][a-z0-9]{3,9}/ , "Password not valid"),
+    newPassword: z.string().nonempty("Password is required").regex(/^[A-Z][a-z0-9]{3,9}$/ , "Password not valid"),
     
   })
   const {
@@ -43,7 +44,8 @@ export default function ResetPasswordPage() {
 
     setBtnLoading(true)
     if(response){
-            router.push("/login")
+            toast.success("you are successfully reset your password")
+            router.push("/signin")
     }
     setErrorMessage(null)
    } catch (error : unknown) {

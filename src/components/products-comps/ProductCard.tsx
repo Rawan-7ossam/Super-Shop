@@ -104,11 +104,11 @@ export default function ProductCard({ product }: { product: Products }) {
               <span className="text-2xl font-bold">{product.price}</span>
             </div>
 
-            <div className="ms-auto relative right-[10px] bottom-[20px] lg:absolute lg:right-[-200px] lg:top-[40px]  lg:group-hover:right-[20px] transition-all duration-500">
+            <div className="ms-auto relative right-[10px] bottom-[10px] lg:absolute lg:right-[-200px] lg:top-[40px]  lg:group-hover:right-[20px] transition-all duration-500">
 
                <Button
                 onClick={() => handleAddProductToCart(product._id)}
-                className="cursor-pointer hover:bg-[#feba35] hover:text-black"
+                className="cursor-pointer active:bg-[#feba35] active:text-black lg:hover:bg-[#feba35] lg:hover:text-black"
               >
                 Add To Cart
                 <ShoppingCart />

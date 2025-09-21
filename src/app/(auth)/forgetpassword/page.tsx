@@ -29,11 +29,11 @@ export default function ForgetPasswordPage() {
         "https://ecommerce.routemisr.com/api/v1/auth/forgotPasswords",
         values
       );
+      console.log(response.data);
+      
       setBtnIsLoading(true);
-      //  if(response?.statusMsg === "success")
-      if (response?.statusText === "success") {
-        route.push("/resetcode");
-      }
+      if(response?.data.statusMsg === "success")
+        route.push("/resetcode")
       setErrorMessage(null);
     } catch (error: unknown) {
       if (axios.isAxiosError(error)) {

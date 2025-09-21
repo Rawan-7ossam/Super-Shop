@@ -3,16 +3,20 @@ import React, { useState } from "react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { useForm } from "react-hook-form";
-import { LoaderCircle, Lock, Mail, Phone, UserRound } from "lucide-react";
+import {  LoaderCircle, Lock, Mail, Phone, UserRound } from "lucide-react";
 import axios from "axios";
 import { useRouter } from "next/navigation";
+import { Eye, EyeOff } from "lucide-react";
 
 import * as z from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
+import toast from "react-hot-toast";
+import Link from "next/link";
 
 export default function RegisterPage() {
   const [errorMessage, setErrorMessage] = useState(null); //عشان يطبع الايرور اللي هيظهر عندي من ال api
   const [btnIsLoading, setBtnIsLoading] = useState(true);
+  const [showPassword , setShowPassword] = useState(false);
   const router = useRouter();
   interface Inputs {
     name: string;
@@ -30,11 +34,11 @@ export default function RegisterPage() {
     password: z
       .string()
       .nonempty("Password is required")
-      .regex(/^[A-Z][a-z0-9]{3,9}/, "Password not valid"),
+      .regex(/^[A-Z][a-z0-9]{3,9}$/, "Password not valid"),
     rePassword: z
       .string()
       .nonempty("Password is required")
-      .regex(/^[A-Z][a-z0-9]{3,9}/, "Password not valid"),
+      .regex(/^[A-Z][a-z0-9]{3,9}$/, "Password not valid"),
     phone: z.string().nonempty("Phone is required"),
   });
   const {
@@ -55,6 +59,7 @@ export default function RegisterPage() {
       console.log(response);
       setBtnIsLoading(true);
       if (response?.data?.message === "success") {
+        toast.success("you registered successfully")
         router.push("/signin");
       }
       setErrorMessage(null);
@@ -106,16 +111,29 @@ export default function RegisterPage() {
         <div className="relative">
           <Lock className="absolute top-[10px] left-[10px] " size={20} />
           <Input
-            type="password"
+            type={showPassword ? "text" : "password"}
             {...register("password", { required: "Password is required" })}
             placeholder="Enter your password"
-            className="my-5  ps-9 py-5"
+            className="mt-5 mb-3  ps-9 py-5"
           />
+         <button onClick={()=>setShowPassword((prev)=> !prev)} className="absolute top-2 right-2 cursor-pointer"  aria-label={showPassword ? "Hide Password" : "Show Password"}> 
+
+          {showPassword ? <EyeOff/> : <Eye/>}
+          
+          </button>
         </div>
 
         {errors.password && (
           <p className="text-red-500">{errors.password?.message}</p>
         )}
+        <div className=" text-sm text-gray-600 border-1 rounded-2xl p-5">
+          <p className="font-semibold mb-1">Your password must:</p>
+          <ul className="list-disc list-inside space-y-1">
+            <li>Start with an uppercase letter (A–Z)</li>
+            <li>Contain only lowercase letters or digits after the first character</li>
+            <li>Be 4–10 characters long</li>
+          </ul>
+        </div>
         <div className="relative">
           <Lock className="absolute top-[10px] left-[10px] " size={20} />
           <Input
@@ -142,8 +160,11 @@ export default function RegisterPage() {
         {errors.phone && (
           <p className="text-red-500">{errors.phone?.message}</p>
         )}
-        {btnIsLoading ? (
-          <Button type="submit" className="px-7 py-5 my-5 cursor-pointer  ">
+       
+
+<div className="flex flex-col md:flex-row items-center gap-1 text-bold ">
+{btnIsLoading ? (
+          <Button type="submit" className="px-7 py-5 my-3 cursor-pointer  ">
             Register
           </Button>
         ) : (
@@ -152,6 +173,13 @@ export default function RegisterPage() {
             loading...
           </Button>
         )}
+              <p className=" p-3 font-semibold text-gray-600 text-sm"> if you have an account{" "} 
+             
+             <Link href="/signin" className="underline underline-offset-1 active:text-red-500 lg:hover:text-red-500">Sign In</Link>
+          
+              </p>
+            
+           </div>
       </form>
     </div>
   );

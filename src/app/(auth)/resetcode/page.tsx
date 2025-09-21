@@ -11,6 +11,7 @@ import {
   InputOTPSeparator,
   InputOTPSlot,
 } from "@/components/ui/input-otp"
+import toast from "react-hot-toast";
 
 
 
@@ -35,6 +36,7 @@ export default function ResetCodePage() {
             try {
      const response = await axios.post("https://ecommerce.routemisr.com/api/v1/auth/verifyResetCode" , values)
     if(response){
+      toast.success("successfully verified code")
             route.push("/resetpassword")
     }
     setErrorMessage(null)
@@ -88,7 +90,7 @@ export default function ResetCodePage() {
 
         {errorMessage && <p className="text-red-700 text-center">{errorMessage}</p>}
 
-        <Button type="submit" className="w-full px-7 py-5 my-5 cursor-pointer">
+        <Button type="submit" className="w-1/4 px-7 py-5 my-5 cursor-pointer flex mx-auto">
           Verify Code
         </Button>
       </form>

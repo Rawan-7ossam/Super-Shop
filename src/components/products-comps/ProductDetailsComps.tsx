@@ -72,7 +72,7 @@ const {getCartInfo} = useCart()
 
 
   return (
-    <div className="flex flex-col xl:flex-row justify-center mt-20 items-center gap-8">
+    <div className="flex flex-col xl:flex-row justify-center mt-20 items-center gap-8 mx-3">
       <div className="w-full xl:w-1/4">
 
          <Swiper
