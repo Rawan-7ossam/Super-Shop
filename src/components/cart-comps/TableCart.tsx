@@ -105,7 +105,7 @@ export default function TableCart() {
         </Table>
          <hr className="mt-5 border-gray-300 w-full mx-auto" />
         <div className="mx-auto flex justify-center items-center my-5">
-             <Button onClick={()=>handleClearCart()} className="cursor-pointer rounded-full hover:bg-[#feba35] hover:text-black transition-all duration-300">Clear Your Cart</Button>
+             <Button onClick={()=>handleClearCart()} className="cursor-pointer rounded-full active:bg-[#feba35] active:text-black lg:hover:bg-[#feba35] lg:hover:text-black transition-all duration-300">Clear Your Cart</Button>
         </div>
        
        
@@ -135,7 +135,7 @@ export default function TableCart() {
           <p>Total</p>
           <p>{myContext?.data?.totalCartPrice}</p>
         </div>
-        <Button className=" mx-auto flex mt-10 rounded-full cursor-pointer hover:bg-[#feba35] hover:text-black transition-all duration-300">
+        <Button className=" mx-auto flex mt-10 rounded-full cursor-pointer active:bg-[#feba35] active:text-black lg:hover:bg-[#feba35] lg:hover:text-black transition-all duration-300">
           <Link href="/checkout">
             Proceed to Checkout
           </Link>

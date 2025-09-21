@@ -108,7 +108,7 @@ export default function ProductCard({ product }: { product: Products }) {
 
                <Button
                 onClick={() => handleAddProductToCart(product._id)}
-                className="cursor-pointer active:bg-[#feba35] active:text-black lg:hover:bg-[#feba35] lg:hover:text-black"
+                className="cursor-pointer active:bg-[#feba35] transition-all duration-300 active:text-black lg:hover:bg-[#feba35] lg:hover:text-black"
               >
                 Add To Cart
                 <ShoppingCart />

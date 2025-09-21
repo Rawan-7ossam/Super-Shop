@@ -81,7 +81,7 @@ export default function WishlistCard() {
                 <TableCell>{wishlist.price} EGP</TableCell>
                 <TableCell>{moment(wishlist.updatedAt).calendar()}</TableCell>
                 <TableCell>
-                  <Button onClick={()=>handleAddProductToCart(wishlist.id)} className="cursor-pointer rounded-full hover:bg-[#feba35] hover:text-black transition-all duration-300">Add to Cart</Button>
+                  <Button onClick={()=>handleAddProductToCart(wishlist.id)} className="cursor-pointer rounded-full active:bg-[#feba35] transition-all lg:hover:bg-[#feba35] hover:text-black duration-300">Add to Cart</Button>
                 </TableCell>
                   
               </TableRow>)}

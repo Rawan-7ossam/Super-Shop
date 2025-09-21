@@ -234,7 +234,7 @@ const [isDesktop, setIsDesktop] = useState(false);
                     onClick={() => signOut({ callbackUrl: "/signin" })}
                     className="text-[14px] text-[#171717]"
                   >
-                    <div className="hover:bg-slate-300 rounded-lg px-2 py-1">
+                    <div className="active:bg-slate-300 transition-all delay-300 lg:hover:bg-slate-300 rounded-lg px-2 py-1">
                       <p className="text-[14px]"><LogOut className="inline" size={15} /> Logout </p>
                     </div>
                   </Link>
@@ -243,7 +243,7 @@ const [isDesktop, setIsDesktop] = useState(false);
                 <>
                   <li>
                     <Link href="/signin" className=" text-[#171717] ">
-                      <div className="hover:bg-slate-300 rounded-lg px-2 py-1">
+                      <div className="active:bg-slate-300 transition-all delay-300 lg:hover:bg-slate-300 rounded-lg px-2 py-1">
                         <p className="text-[14px]"><LogIn className="inline" size={15} /> SignIn</p>
                       </div>
                     </Link>
@@ -254,7 +254,7 @@ const [isDesktop, setIsDesktop] = useState(false);
                       href="/register"
                       className="text-[14px] text-[#171717]"
                     >
-                      <div className="hover:bg-slate-300 rounded-lg px-2 py-1">
+                      <div className="active:bg-slate-300 transition-all delay-300 lg:hover:bg-slate-300 rounded-lg px-2 py-1">
                         <p className="text-[14px]"> <SquarePen className="inline" size={15} /> Register</p>
                       </div>
                     </Link>

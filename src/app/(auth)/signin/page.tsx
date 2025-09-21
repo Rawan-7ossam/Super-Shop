@@ -15,7 +15,7 @@ export default function SignInPage() {
   const [errorMessage, setErrorMessage] = useState<string | null>(null); //عشان يطبع الايرور اللي هيظهر عندي من ال api
   const [btnIsLoading, setBtnIsLoading] = useState(true);
   const router = useRouter();
-  const [showPassword , setShowPassword] = useState(false)
+  const [showPassword, setShowPassword] = useState(false);
 
   interface Inputs {
     email: string;
@@ -93,10 +93,13 @@ export default function SignInPage() {
             placeholder="Enter your password"
             className="my-5  ps-9 py-5"
           />
-         <button onClick={()=>setShowPassword((prev)=>!prev)} className="cursor-pointer absolute right-2 top-2"> {showPassword ? <EyeOff/> : <Eye/>}
-         
-         
-         </button>
+          <button
+            onClick={() => setShowPassword((prev) => !prev)}
+            className="cursor-pointer absolute right-2 top-2"
+          >
+            {" "}
+            {showPassword ? <EyeOff /> : <Eye />}
+          </button>
         </div>
 
         {errors.password && (
@@ -106,14 +109,17 @@ export default function SignInPage() {
         <div className="flex  justify-end text-bold ">
           <Link
             href="/forgetpassword"
-            className="active:text-red-500 lg:hover:text-red-500 p-3 font-semibold rounded-full"
+            className="active:text-red-500  transition-all duration-300 lg:hover:text-red-500 p-3 font-semibold rounded-full"
           >
             Forgot Password?
           </Link>
         </div>
 
         {btnIsLoading ? (
-          <Button type="submit" className="px-7 py-5 my-2 cursor-pointer  ">
+          <Button
+            type="submit"
+            className="px-7 py-5 my-2 cursor-pointer mx-auto "
+          >
             Sign In
           </Button>
         ) : (
@@ -123,13 +129,13 @@ export default function SignInPage() {
           </Button>
         )}
 
-        <div className="flex  text-bold ">
+        <div className=" text-bold ">
           <p className=" p-3 font-semibold text-gray-600 text-sm">
             {" "}
             if you don&apos;t have an account{" "}
             <Link
               href="/register"
-              className="underline underline-offset-1 active:text-red-500 lg:hover:text-red-500"
+              className="underline underline-offset-1 active:text-red-500 transition-all duration-300 lg:hover:text-red-500"
             >
               Create Account
             </Link>

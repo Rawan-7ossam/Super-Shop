@@ -163,7 +163,7 @@ const {getCartInfo} = useCart()
         <hr className="my-5 border-gray-300" />
         <p className="mb-4">To buy,</p>
         <div className="flex justify-center items-center gap-2">
-             <Button onClick={()=>handleAddProductToCart(productDetails._id)} className="cursor-pointer w-[50%]  flex py-6 rounded-full">
+             <Button onClick={()=>handleAddProductToCart(productDetails._id)} className="cursor-pointer w-[50%]  flex py-6 rounded-full active:bg-[#feba35] transition-all duration-300 lg:hover:bg-[#feba35]">
                
                    <span className="text-lg"> + </span>Add To Cart
                 
