@@ -13,7 +13,7 @@ export default function CategoriesCard({category}:{category:Categories}) {
     
   return (
     <div className='container mx-auto '>
-      <Link href={`/categories/${category._id}`}>
+     
       
       <Card className='cursor-pointer group overflow-hidden hover:shadow-2xl pb-8 md:hover:scale-110 transition-all duration-300'>
   <CardHeader>
@@ -26,7 +26,7 @@ export default function CategoriesCard({category}:{category:Categories}) {
     <p className='text-center font-bold text-2xl'>{category.name}</p>
   </CardFooter>
 </Card>
-      </Link>
+      
     </div>
   )
 }
